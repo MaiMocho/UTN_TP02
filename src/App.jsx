@@ -1,32 +1,30 @@
 import React, {useState} from 'react'
 import ChatScreen from './Screens/ChatScreen/ChatScreen'
-import { Route, Routes } from 'react-router'
+import { NavLink, Route, Routes } from 'react-router'
 import ContactScreen from './Screens/ContactScreen/ContactScreen'
 
 const App = () => {
 
 	return (
 		<div>
+			<header className='sideBar'>
+				<h1>bay bgay</h1>
+			</header>
+			<header className='topBar'>
+				<h1>hola hola</h1>
+			</header>
+			<header className='Chats-Selector'>
+				<nav>
+					<li><NavLink to="/contact/1/messages">Contacto 1</NavLink></li>	
+					<li><NavLink to="/contact/2/messages">Contacto 2</NavLink> </li>
+					<li><NavLink to="/contact/3/messages">Contacto 3</NavLink> </li>
+				</nav>
+			</header>
+			<div className='ChatScreen-Container'>
 			<Routes>
-				<Route
-					path='/'
-					element={<ContactScreen/>}
-				/>
-				{/*
-				:contact_id es un parametro de busqueda (valor pasado por la URL)
-				ponemos :contact_id para indicar que el valor es variable, es decir puede ser:
-				/contact/1/messages
-				o 
-				/contact/2/messages
-				etc...
-				*/}
-				<Route 
-					path='/contact/:contact_id/messages' 
-					element={<ChatScreen/>} 
-				/>
-
+				<Route path="/contact/:contact_id/messages" element={<ChatScreen />} />
 			</Routes>
-
+			</div>
 		</div>
 	)
 }
