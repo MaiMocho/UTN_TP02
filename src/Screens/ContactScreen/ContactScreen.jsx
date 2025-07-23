@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
+import { NavLink, Route, Routes } from 'react-router';
 import ContactList from '../../Components/ContactList/ContactList';
 import { getContactList } from '../../services/contactService.js';
-
-
-
-
+import './ContactScreen.css';
 const ContactScreen = () => {
     const contacts = getContactList()
     const [contactsState, setContactsState] = useState(contacts);
 
     return (
-        <div>
+        <div >
             <ContactList contacts={contactsState} />
-        </div>
+				<nav>
+					<li><NavLink to="/contact/1/messages">Contacto 1</NavLink> </li>
+					<li><NavLink to="/contact/2/messages">Contacto 2</NavLink> </li>
+					<li><NavLink to="/contact/3/messages">Contacto 3</NavLink> </li>
+				</nav>
+    </div>
     );
 };
 

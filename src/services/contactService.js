@@ -10,21 +10,21 @@ const contacts = [
             {
                 emisor: 'YO',
                 hora: '23:10',
-                id: 1,
+                id: 4,
                 texto: 'Hola estoy hablando con pepe',
                 status: 'visto'
             },
             {
                 emisor: 'OTRO',
                 hora: '23:11',
-                id: 2,
+                id: 5,
                 texto: 'Si el que canta y baila',
                 status: 'visto'
             },
             {
                 emisor: 'YO',
                 hora: '23:12',
-                id: 1,
+                id: 6,
                 texto: 'Todo esta bien?',
                 status: 'visto'
             }
@@ -41,21 +41,21 @@ const contacts = [
             {
                 emisor: 'YO',
                 hora: '23:10',
-                id: 1,
+                id: 7,
                 texto: 'Hola',
                 status: 'visto'
             },
             {
                 emisor: 'OTRO',
                 hora: '23:11',
-                id: 2,
+                id: 8,
                 texto: 'Hola que tal?',
                 status: 'visto'
             },
             {
                 emisor: 'YO',
                 hora: '23:12',
-                id: 1,
+                id: 9,
                 texto: 'Todo esta bien?',
                 status: 'visto'
             }
@@ -72,22 +72,22 @@ const contacts = [
             {
                 emisor: 'YO',
                 hora: '23:10',
-                id: 1,
+                id: 10,
                 texto: 'Hola',
                 status: 'visto'
             },
             {
                 emisor: 'OTRO',
                 hora: '23:11',
-                id: 3,
+                id: 11,
                 texto: 'Hola que tal?',
                 status: 'visto'
             },
             {
                 emisor: 'YO',
                 hora: '23:12',
-                id: 1,
-                texto: 'Todo esta bien?',
+                id: 12,
+                texto: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA?',
                 status: 'visto'
             }
         ]
@@ -103,21 +103,21 @@ const contacts = [
             {
                 emisor: 'YO',
                 hora: '23:10',
-                id: 1,
+                id: 13,
                 texto: 'chau',
                 status: 'visto'
             },
             {
                 emisor: 'OTRO',
                 hora: '23:11',
-                id: 4,
+                id: 14,
                 texto: 'que decis?',
                 status: 'visto'
             },
             {
                 emisor: 'YO',
                 hora: '23:12',
-                id: 1,
+                id: 15,
                 texto: 'nada :3',
                 status: 'visto'
             }

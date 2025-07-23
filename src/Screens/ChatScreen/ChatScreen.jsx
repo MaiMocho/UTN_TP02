@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router'
 import MessagesList from '../../Components/MessagesList/MessagesList'
 import {NewMessageForm} from '../../Components/NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
@@ -7,28 +8,18 @@ import { getContactById } from '../../services/contactService.js'
 
 const ChatScreen = () => {
 
-	/* 
-	Paso 1: Obtener el contact_id de la url
-	Paso 2: Buscar el contact por su contact_id
-	Paso 3: Cargar el contact.messages al estado de mensajes
-	*/
-	
-	/* Paso 1: */
-	/* 
-	useParams() es una funcion que retorna un objeto con los parametros de busqueda de ese momento 
-	Siempre retorna un objeto y el tipo de dato de valor de cada parametro de busqueda siempre sera un string
-	Ejemplo: /contact/:contact_id/messages
-	URL ejemplo: /contact/1/messages
-	useParams() devolvera {contact_id: '1'}
-
-	*/
 	const {contact_id} = useParams()
 
-	/* Paso 2: */
 	const contact_selected = getContactById(contact_id)
+    const [messages, setMessages] = useState([])
+	const [contactSelected, setContactSelected] = useState(null)
 
-	/* Paso 3: */
-    const [messages, setMessages] = useState(contact_selected.messages)
+	useEffect(() => {
+		const selected = getContactById(contact_id)
+		setContactSelected(selected)
+		setMessages(selected.messages)
+	}, [contact_id]
+	)
 
 	const deleteMessageById = (message_id) => {
 		const new_message_list = []
@@ -62,18 +53,23 @@ const ChatScreen = () => {
 
 	
     return (
-        <div>
-            <h1>Mensajes:</h1>
+		<div className='ChatScreen-Container'>
+			<Routes>
+				<Route path="/contact/:contact_id/messages" element={<ChatScreen />} />
+			</Routes>
+			<div>
+				<h1>Mensajes:</h1>
 
-			{
-				messages.length > 0
-				&&
-				<button onClick={deleteAllMessages}>Borrar todos los mensajes</button>
-			}
+				{
+					messages.length > 0
+					&&
+					<button onClick={deleteAllMessages}>Borrar todos los mensajes</button>
+				}
 
-			<MessagesList messages={messages} deleteMessageById={deleteMessageById} />
-			<NewMessageForm addNewMessage={addNewMessage}/>
-        </div>
+				<MessagesList messages={messages} deleteMessageById={deleteMessageById} />
+				<NewMessageForm addNewMessage={addNewMessage}/>
+			</div>
+		</div>
     )
 }
 
