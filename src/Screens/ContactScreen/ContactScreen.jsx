@@ -10,11 +10,6 @@ const ContactScreen = () => {
     return (
         <div className='contact-screen'>
             <ContactList contacts={contactsState} />
-		{/* 		<nav>
-					<li><NavLink to="/contact/1/messages"></NavLink> </li>
-					<li><NavLink to="/contact/2/messages"></NavLink> </li>
-					<li><NavLink to="/contact/3/messages"></NavLink> </li>
-				</nav> */}
     </div>
     );
 };
