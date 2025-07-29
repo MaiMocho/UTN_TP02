@@ -1,14 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import './ContactItem.css';
 
 const ContactItem = ({ contact }) => {
     return (
-        <Link to={`/contact/${contact.id}/messages`}>
-            <h2>{contact.name}</h2>
-            <img src={contact.avatar} alt={contact.name} width={100} />
-            <p>Last Connection: {contact.lastConnection}</p>
-            <p>Connection Status: {contact.connectionStatus}</p>
-        </Link>
+        <NavLink to={`/contact/${contact.id}/messages`} className='list-of-contacts'>
+            <div className='contact-item-photo'>
+                <img src={contact.avatar} />
+            </div>
+            <div>
+                <span>{contact.name}</span>
+                <span>{contact.id.día}</span>
+                <div>
+                    <p>{contact.lastMessage}</p>
+                </div>
+            </div>
+
+            {/* <p>Last Connection: {contact.lastConnection}</p>
+            <p>Connection Status: {contact.connectionStatus}</p> */}
+        </NavLink>
     );
 };
 

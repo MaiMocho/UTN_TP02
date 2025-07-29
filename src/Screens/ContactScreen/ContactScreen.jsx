@@ -9,7 +9,7 @@ const ContactScreen = () => {
 
     return (
         <div className='contact-screen'>
-            <ContactList contacts={contactsState} />
+            <ContactList contacts={contactsState}/>
     </div>
     );
 };

@@ -7,7 +7,7 @@ const SideBar = () => {
             <button className='sidebar-button'> <ICONS.state className='sidebar-icons'/></button>
             <button className='sidebar-button'><ICONS.channels className='sidebar-icons'/></button>
             <button className='sidebar-button'>    <ICONS.community className='sidebar-icons'/> </button>
-            <img src="images/Anxy.png" width={24}/>
+            <img src="images/pinkiefnaf.png" width={24}/>
         </div>
     )
 }

@@ -36,6 +36,7 @@ const ChatScreen = () => {
 		const new_mesage = {
 			emisor: 'YO',
 			hora: '11:10', //Investigar acerca de Date.
+			día: 'miércoles',
 			texto: text,
 			status: 'no-visto',
 			id: messages.length + 1
