@@ -2,7 +2,6 @@
 .sideBar{
     width: 40px;
     border-right: #343636 solid 1px;
-    height: 100%;
     display: flex;
     box-sizing: content-box;
     flex-direction: column;
@@ -21,8 +20,8 @@
 
 .sidebar-button{
     background-color: transparent;
-    border: none;
     cursor: pointer;
+    border: none;
     width: 40px;
     height: 40px;
     display: flex;

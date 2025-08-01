@@ -4,6 +4,7 @@ import MessagesList from '../../Components/MessagesList/MessagesList'
 import {NewMessageForm} from '../../Components/NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
 import { getContactById } from '../../services/contactService.js'
+import './ChatScreen.css'
 
 
 const ChatScreen = () => {
@@ -11,12 +12,10 @@ const ChatScreen = () => {
 	const {contact_id} = useParams()
 
 	const contact_selected = getContactById(contact_id)
-    const [messages, setMessages] = useState([])
-	const [contactSelected, setContactSelected] = useState(null)
+    const [messages, setMessages] = useState([contact_selected])
 
 	useEffect(() => {
 		const selected = getContactById(contact_id)
-		setContactSelected(selected)
 		setMessages(selected.messages)
 	}, [contact_id]
 	)
@@ -54,18 +53,18 @@ const ChatScreen = () => {
 
 	
     return (
-		<div className='ChatScreen-Container'>
+		<div className='background-style'>
 			<Routes>
 				<Route path="/contact/:contact_id/messages" element={<ChatScreen />} />
 			</Routes>
 			<div>
 				<h1>Mensajes:</h1>
 
-				{
+			{/* 	{
 					messages.length > 0
 					&&
 					<button onClick={deleteAllMessages}>Borrar todos los mensajes</button>
-				}
+				} */}
 
 				<MessagesList messages={messages} deleteMessageById={deleteMessageById} />
 				<NewMessageForm addNewMessage={addNewMessage}/>

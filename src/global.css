@@ -10,8 +10,13 @@
 .mainContainer{
     display: flex;
     flex-direction: row;
+    width: 100vw;
     height: 100vh;
-
+}
+.contacts-selector{
+     display: flex;
+     flex-direction: column;
+     height: 100vh;
 }
 .chats-selector{
     background-color: #161717;
@@ -30,4 +35,10 @@
     height: auto;
     font-size: 20px;
     font-weight: 500;
+}
+.ChatScreen-Container {
+    display: flex;
+    flex-direction: column;
+    background-color: #161717;
+    width: 100%;
 }
