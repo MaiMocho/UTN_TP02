@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router'
 import MessagesList from '../../Components/MessagesList/MessagesList'
 import {NewMessageForm} from '../../Components/NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
-import { getContactById } from '../../services/contactService.js'
+import { getContactById, contactService } from '../../services/contactService.js'
 import './ChatScreen.css'
 
 
@@ -20,7 +20,7 @@ const ChatScreen = () => {
 	}, [contact_id]
 	)
 
-	const deleteMessageById = (message_id) => {
+/* 	const deleteMessageById = (message_id) => {
 		const new_message_list = []
 		for(const message of messages){
 			if(message.id !== message_id){
@@ -29,7 +29,11 @@ const ChatScreen = () => {
 		} 
 		setMessages(new_message_list)
 	}
-
+ */
+	const handleContactClick = (contact) => {
+    getContactById(contact);
+};
+	const contacts = contactService.getContacts();
 	const addNewMessage = (text) => {
 		
 		const new_mesage = {
@@ -56,7 +60,7 @@ const ChatScreen = () => {
 				<Route path="/contact/:contact_id/messages" element={<ChatScreen />} />
 			</Routes>
 			<div>
-				<h1>Mensajes:</h1>
+				<h2>{contact_selected ? contact_selected.name : 'Contactos'}</h2>
 
 			{/* 	{
 					messages.length > 0
@@ -64,7 +68,7 @@ const ChatScreen = () => {
 					<button onClick={deleteAllMessages}>Borrar todos los mensajes</button>
 				} */}
 
-				<MessagesList messages={messages} deleteMessageById={deleteMessageById} />
+{/* 				<MessagesList messages={messages} deleteMessageById={deleteMessageById} /> */}
 				<NewMessageForm addNewMessage={addNewMessage}/>
 			</div>
 		</div>

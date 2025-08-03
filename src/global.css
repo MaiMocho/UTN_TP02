@@ -31,9 +31,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding-left: 20px;
 }
-
 .title-logo {
     color: #FFFFFF;
     width: 104px;
@@ -47,4 +46,16 @@
     flex-direction: column;
     background-color: #161717;
     width: 100%;
+}
+
+.header-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 30px;
+    gap: 28px;
+}
+.verticalDots-icon{
+    color: white;
+    font-size: 19px;
 }

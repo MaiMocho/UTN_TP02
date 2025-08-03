@@ -11,6 +11,9 @@ export const getContactById = (contact_id) => {
     }
     return null
 }
+export const contactService = {
+    getContacts: () => contacts,
+};
 export const getLastMessage = (contact_id) => {
     const contact = getContactById(contact_id);
     if (contact && contact.messages.length > 0) {

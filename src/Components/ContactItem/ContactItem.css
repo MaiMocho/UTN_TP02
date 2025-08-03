@@ -17,11 +17,17 @@
 }
 .individual-contact span{
     color: #ffffff;
+    font-size: 16px;
 }
 .individual-contact p{
     color: #A1A2A2;
+    font-size: 14px;
 }
 .contact-list :hover{
     background-color: #2E2F2F;
     border-radius: 12px;
+}
+.contact-list:active{
+        background-color: #2E2F2F;
+        border-radius: 12px;
 }

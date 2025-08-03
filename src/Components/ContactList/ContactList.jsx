@@ -10,7 +10,7 @@ const ContactList = ({ contacts }) => {
                 const lastMessage = getLastMessage(contact.id);
                 const lastMessageDay = lastMessage ? lastMessage.día : '';
                 return (
-                    <ContactItem key={contact.id} contact={contact} lastMessageDay={lastMessageDay}/>
+                    <ContactItem key={contact.id} contact={contact} onClick={() => onContactClick(contact)} lastMessageDay={lastMessageDay}/>
                 )
             })}
         </div>

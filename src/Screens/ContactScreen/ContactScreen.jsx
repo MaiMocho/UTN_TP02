@@ -3,26 +3,27 @@ import { NavLink, Route, Routes } from 'react-router';
 import ContactList from '../../Components/ContactList/ContactList';
 import { getContactList } from '../../services/contactService.js';
 import './ContactScreen.css';
-import ICONS from '../../assets/Icons';
+import SearchBar from './ContactsSearch.jsx';
+import ContactFilterSection from './ContactFilterSection.jsx';
+
 const ContactScreen = () => {
-    const contacts = getContactList()
-    const [contactsState, setContactsState] = useState(contacts);
 
-    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredContacts, setFilteredContacts] = useState(getContactList());
 
-    const handleSearch = (event) => {
-        setSearchQuery(event.target.value);
+    const handleSearch = (searchQuery) => {
+        const contacts = getContactList()
+        const filteredContacts = contacts.filter((contact) => {
+        return contact.name.toLowerCase().includes(searchQuery.toLowerCase());
+        });
+        setFilteredContacts(filteredContacts);
     };
+
     return (
-        <div className='contact-screen'>
-            <div className='search-container'>
-                <label className='search-bar'>
-                    <ICONS.search/>
-                    <input type="text" value={searchQuery} onChange={handleSearch} placeholder= "Buscar un chat o iniciar uno nuevo" />
-                </label>
-            </div>
+        <div className='contact-section'>
+            <SearchBar onSearch={handleSearch}></SearchBar>
+            <ContactFilterSection></ContactFilterSection>
             <div>
-                <ContactList contacts={contactsState} />
+                <ContactList contacts={filteredContacts} />
             </div>
         </div>
     );
