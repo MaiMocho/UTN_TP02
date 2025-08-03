@@ -11,3 +11,10 @@ export const getContactById = (contact_id) => {
     }
     return null
 }
+export const getLastMessage = (contact_id) => {
+    const contact = getContactById(contact_id);
+    if (contact && contact.messages.length > 0) {
+        return contact.messages[contact.messages.length - 1];
+    }
+    return null;
+};
