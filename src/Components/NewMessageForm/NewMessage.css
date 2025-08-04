@@ -24,6 +24,7 @@
     box-shadow: none;
     border: none;
     width: 500px;
+    color: white;
 }
 .mini-container{
     display: flex;

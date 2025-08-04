@@ -5,6 +5,7 @@ import {NewMessageForm} from '../../Components/NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
 import { getContactById, contactService } from '../../services/contactService.js'
 import './ChatScreen.css'
+import { getCurrentTimeAndDay } from '../../services/getTime.js'
 
 
 const ChatScreen = () => {
@@ -19,7 +20,6 @@ const ChatScreen = () => {
 		setMessages(selected.messages)
 	}, [contact_id]
 	)
-
 	const deleteMessageById = (message_id) => {
 		const new_message_list = []
 		for(const message of messages){
@@ -35,11 +35,12 @@ const ChatScreen = () => {
 };
 	const contacts = contactService.getContacts();
 	const addNewMessage = (text) => {
-		
+		const {hora, día} = getCurrentTimeAndDay()
+
 		const new_mesage = {
 			emisor: 'YO',
-			hora: '11:10',
-			día: 'miércoles',
+			hora,
+			día,
 			texto: text,
 			status: 'no-visto',
 			id: messages.length + 1
@@ -48,7 +49,6 @@ const ChatScreen = () => {
 		cloned_messages_list.push(new_mesage)
 		setMessages(cloned_messages_list)
 	}
-
 	const deleteAllMessages = () => {
 		setMessages([])
 	}

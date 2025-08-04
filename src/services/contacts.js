@@ -1,7 +1,7 @@
 const contacts = [
     {
         id: 1,
-        name: 'Pepe',
+        name: 'Muxhasho estresado',
         description: 'Solo vives una vez, pero no te olvides de mi',
         avatar: 'https://media.tenor.com/qi-hY_XRltgAAAAi/funny-cursed.gif',
         lastMessage: 'Todo esta bien?',
