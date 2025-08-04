@@ -1,25 +1,25 @@
 import React, { useState } from 'react'
-const Message = ({emisor, hora, dia, id, texto, status, deleteMessageById}) => {
+import './Message.css'
+import ICONS from '../../assets/Icons'
+const Message = ({ emisor, hora, dia, id, texto, status, deleteMessageById }) => {
 
-	/* 
-	Cuando necesito pasar un parametro a una funcion asociada a un evento, podemos encerrarlo en otra funcion, de esta manera evitamos que se ejecute al rendirzarse el componente
-	ejemplo:
-	Incorrecto: <button onClick={alert('hola')}></button> => Apenas se cargue el boton se ejecutara la alerta
-	Correcto: <button onClick={() => alert('hola')}></button> => La funcion solo se ejecutara al dar click
-	*/
 	const [message_selected, setMessageSelected] = useState(false)
 
 	const handleChangeMessageSelected = (e) => {
 		e.preventDefault()
 		setMessageSelected(true)
 	}
+
 	return (
-		<div onContextMenu={handleChangeMessageSelected}>
-			<p>{texto}</p>
-			<span>{hora}</span>
-			{
+		<div onContextMenu={handleChangeMessageSelected} className={`message-container ${emisor === 'YO' ? 'from-me' : 'from-them'}`}>
+			<span className='message-text'>{texto}</span>
+			<span className='message-time'>{hora}
+				<span className='message-status'> {emisor === 'YO' ? <ICONS.seen/> : null}</span>				
+			</span>
+
+			{/* {
 				message_selected && <button onClick={() => {deleteMessageById(id)}}>Eliminar</button>
-			}
+			} */}
 		</div>
 	)
 }

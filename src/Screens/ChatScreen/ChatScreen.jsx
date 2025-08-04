@@ -20,7 +20,7 @@ const ChatScreen = () => {
 	}, [contact_id]
 	)
 
-/* 	const deleteMessageById = (message_id) => {
+	const deleteMessageById = (message_id) => {
 		const new_message_list = []
 		for(const message of messages){
 			if(message.id !== message_id){
@@ -29,7 +29,7 @@ const ChatScreen = () => {
 		} 
 		setMessages(new_message_list)
 	}
- */
+
 	const handleContactClick = (contact) => {
     getContactById(contact);
 };
@@ -38,7 +38,7 @@ const ChatScreen = () => {
 		
 		const new_mesage = {
 			emisor: 'YO',
-			hora: '11:10', //Investigar acerca de Date.
+			hora: '11:10',
 			día: 'miércoles',
 			texto: text,
 			status: 'no-visto',
@@ -52,25 +52,22 @@ const ChatScreen = () => {
 	const deleteAllMessages = () => {
 		setMessages([])
 	}
-
 	
     return (
-		<div className='background-style'>
+		<div className='background-style' >
 			<Routes>
-				<Route path="/contact/:contact_id/messages" element={<ChatScreen />} />
+				<Route path="/contact/:contact_id/messages" element={<ChatScreen/>} />
 			</Routes>
-			<div>
-				<h2>{contact_selected ? contact_selected.name : 'Contactos'}</h2>
+			<div className='chat-header'>
+				<img src={contact_selected ? contact_selected.avatar : ''} className = "contact-avatar" alt="" />
+				<div className='contact-info'>
+					<span>{contact_selected ? contact_selected.name : 'Contactos'}</span>
+					<p>Ultima conexión: 07:34hs</p>
+				</div>
 
-			{/* 	{
-					messages.length > 0
-					&&
-					<button onClick={deleteAllMessages}>Borrar todos los mensajes</button>
-				} */}
-
-{/* 				<MessagesList messages={messages} deleteMessageById={deleteMessageById} /> */}
-				<NewMessageForm addNewMessage={addNewMessage}/>
 			</div>
+				<MessagesList messages={messages}/>
+				<NewMessageForm addNewMessage={addNewMessage}/>
 		</div>
     )
 }

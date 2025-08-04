@@ -1,0 +1,36 @@
+.icon-button{
+    color: #ffffff;
+    font-size: 25px; 
+    background: transparent;
+    border: none;
+}
+.message-input{
+    display: flex;
+    align-items: center;   
+    text-align: center;     
+    height: 50px;
+    border-radius: 22px;
+    background-color: #242626;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 15px;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 12px;
+}
+.message-input input{
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    width: 500px;
+}
+.mini-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.message-input input::placeholder{
+    color: #A1A2A2;
+    font-size: 15px;
+}

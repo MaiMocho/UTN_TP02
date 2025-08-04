@@ -1,0 +1,46 @@
+.message-container {
+	max-width: 60%;
+	min-width: 76px;
+	font-size: 14px;
+	padding: 0 10px;
+	padding-top: 8px;
+	margin: 5px 0px;
+	border-radius: 12px;
+	clear: both;
+	position: relative;
+	color: aliceblue;
+}
+
+.from-me {
+	background-color: #144D37;
+	align-self: flex-end;
+	margin-left: auto;
+	text-align: right;
+
+}
+
+.from-them {
+	background-color: #242626;
+	align-self: flex-start;
+	margin-right: auto;
+	text-align: left;
+}
+
+.message-text {
+	word-wrap: break-word;
+	display: flex;
+	justify-content: start;
+}
+
+.message-time {
+	font-size: 11px;
+	color: #b4b2b2;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.message-status{
+	font-size: 20px;
+	color: rgb(78, 189, 204);
+}
